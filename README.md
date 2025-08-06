@@ -204,9 +204,9 @@ graph TD
 4. **Agent Coordination**: Manage more than 677 AI agents without conflicts
 
 ### **💰 PRIZES:**
-- **1st Place**: $5,000 + Direct access to our proprietary systems
-- **2nd Place**: $2,500 + HyperFocus developer license
-- **3rd Place**: $1,000 + Memory crystal system access
+- **1st Place**: 5,000 BROski$ + Direct access to our proprietary systems
+- **2nd Place**: 2,500 BROski$ + HyperFocus developer license
+- **3rd Place**: 1,000 BROski$ + Memory crystal system access
 
 ---
 
