@@ -1,0 +1,62 @@
+name: Legendary Welcome
+
+on:
+  issues:
+    types: [opened]
+  pull_requests:
+    types: [opened]
+
+jobs:
+  legendary_welcome:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Legendary Welcome Message
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const isIssue = context.eventName === 'issues';
+            const welcomeMessage = isIssue ?
+              `**LEGENDARY WELCOME!**
+
+              Thank you for opening this legendary issue! Our legendary community team will review it soon.
+
+              **What happens next:**
+              - Our legendary team will review your submission
+              - You'll get legendary feedback within 24-48 hours
+              - Join our legendary Discord for faster legendary support
+
+              **Remember:** Every legendary contribution matters, no matter how small!
+
+              Welcome to the legendary community!` :
+              `**LEGENDARY CONTRIBUTION DETECTED!**
+
+              Amazing legendary work! Thank you for this legendary pull request!
+
+              **Legendary review process:**
+              - Our legendary maintainers will review your legendary code
+              - You'll get legendary feedback to make it even more legendary
+              - Once approved, your legendary contribution will be celebrated!
+
+              **Legendary contributor benefits:**
+              - Legendary recognition in our community
+              - Legendary badge on your profile
+              - Legendary karma points and achievement unlocks
+
+              You're now part of the legendary contributor hall of fame!`;
+
+            if (isIssue) {
+              github.rest.issues.createComment({
+                issue_number: context.issue.number,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                body: welcomeMessage
+              });
+            } else {
+              github.rest.pulls.createReview({
+                pull_number: context.payload.pull_request.number,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                body: welcomeMessage,
+                event: 'COMMENT'
+              });
+            }
